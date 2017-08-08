@@ -1,0 +1,46 @@
+
+
+Is there a method in pygame that removes a singl sprite from a sprite group by passing it the rect.x and rect.y of the sprite.  
+
+Is it possible to remove a single sprite from a sprite group by giving the rect.x and rect.y of the sprite.
+
+Ex: single_sprite has a rect.x of 88 and  a rect.y of 112
+
+ a method that does something like this: a_sprite_group.remove(88, 112) would remove the single_sprite from the group. 
+
+ I flipped trough the doc and there doesn't seem to be one.  
+
+
+
+
+
+
+
+
+
+
+
+I'm currently making the Space Invaders game in Python with pygame.  
+
+I currently have 3 base barriers that are all built with 1 x 1 pixel blocks (that 'extend' the pygame.sprite.Sprite class).  For collision detection, I check if a missile has collided with the barrier.
+For now, everything works, when I fire and hit one of the barriers, the pixel that was hit is eliminated.  
+
+Now the thing that bothers me is that in the original Space Invaders, when the ship's missile (or an alien's missile for that matter) 
+hits the barrier, it causes an 'explosion' that affects multiple pixels of the barrier.  I would like to implement this 
+in my python/pygame code.  How would I go about this?
+
+Here is my collision detection code in my missile class (that 'extends' the pygame.sprite.Sprite):
+
+baseBarrier_hit_list = pygame.sprite.spritecollide(self, all_baseBarrier_group, True)
+
+		for pixel in baseBarrier_hit_list:
+			self.kill() # I kill the missile after collision so that the other barrier pixels are unaffected.
+			break #so that the other pixels in the column are unaffected.  
+
+I thought of 'artificially' adding 'random' pixels to the baseBarrier_hit_list but I'm unable to add elements to the baseBarrier_hit_list.  
+
+
+Here is a video link of the original space invaders to see what I mean:
+https://www.youtube.com/watch?v=axlx3o0codc 
+
+Here is also a link to a python/pygame version of Space Invaders that shows that only one pixel is affected when collision occurs between missile and base barrier.  (Note that this is not MY version of the game). https://www.youtube.com/watch?v=_2yUP3WMDRc

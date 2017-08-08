@@ -193,3 +193,4 @@ class Alien(pygame.sprite.Sprite):
 	def __str__(self):
 		return "Alien: x: %d and y: %d " % (self.rect.x, self.rect.y)
 
+[]
